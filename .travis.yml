@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - dicker build -t knowge/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true USERNAME/react-test npm test
